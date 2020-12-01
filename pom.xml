@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.head-first</groupId>
-    <artifactId>design</artifactId>
+    <artifactId>HFirst4Design</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>design</name>
     <description>Demo for head first design</description>
