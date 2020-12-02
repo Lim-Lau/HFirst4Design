@@ -1,0 +1,36 @@
+knife4j:
+  enable: true
+  documents:
+    -
+      group: HeadFirst4DesignV1.0
+      name: 接口签名
+      locations: classpath:markdown/sign.md
+  setting:
+    language: zh-CN
+    enableSwaggerModels: true
+    enableDocumentManage: true
+    swaggerModelName: 实体类列表
+    enableVersion: false
+    enableReloadCacheParameter: false
+    enableAfterScript: true
+    enableFilterMultipartApiMethodType: POST
+    enableFilterMultipartApis: false
+    enableRequestCache: true
+    enableHost: false
+    enableHostText: 127.0.0.1:8080
+    enableHomeCustom: true
+    homeCustomLocation: classpath:markdown/home.md
+    enableSearch: false
+    enableFooter: false
+    enableFooterCustom: true
+    footerCustomContent: Apache License 2.0 | Copyright  2019-[重庆将就吃餐饮股份有限公司](https://github.com/Lim-Lau/HFirst4Design)
+    enableDynamicParameter: false
+    enableDebug: true
+    enableOpenApi: false
+    enableGroup: true
+  cors: false
+  production: false
+  basic:
+    enable: true
+    username: Lim
+    password: 12313
