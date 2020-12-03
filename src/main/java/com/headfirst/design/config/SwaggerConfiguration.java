@@ -47,7 +47,7 @@ public class SwaggerConfiguration {
                 .build()
                 //赋予插件体系
                 .extensions(openApiExtensionResolver.buildSettingExtensions())
-                .extensions(openApiExtensionResolver.buildSettingExtensions());
+                .extensions(openApiExtensionResolver.buildExtensions(groupName));
 
         return docket;
     }
