@@ -1,5 +1,6 @@
 package com.headfirst.design.decorator.starbuzz.test;
 
+import com.headfirst.design.decorator.starbarzz.Size;
 import com.headfirst.design.decorator.starbuzz.base.Beverage;
 import com.headfirst.design.decorator.starbuzz.condiment.Mocha;
 import com.headfirst.design.decorator.starbuzz.condiment.Soy;
@@ -32,6 +33,12 @@ public class StarbuzzCoffee {
         beverage2 = new Mocha(beverage2);
         beverage2 = new Whip(beverage2);
         System.out.println(beverage2.getDescription() + " $" + beverage2.cost());
+
+        Beverage beverage3 = new HouseBlend();
+        beverage3.setSize(Size.TALL);
+        beverage3 = new Soy(beverage3);
+        System.out.println(beverage3.getDescription() + " $" + beverage3.cost());
+
     }
 
 }
