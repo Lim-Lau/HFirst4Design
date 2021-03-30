@@ -2,6 +2,7 @@ package com.headfirst.design.factory;
 
 import com.headfirst.design.factory.domain.Pizza;
 import com.headfirst.design.factory.enums.PizzaTaste;
+import com.headfirst.design.factory.enums.PizzaType;
 
 /**
  * @author LiuCan
@@ -9,10 +10,10 @@ import com.headfirst.design.factory.enums.PizzaTaste;
  * @description PizzaStore
  */
 public abstract class PizzaStore {
-    public Pizza orderPizza(PizzaTaste type) {
+    public Pizza orderPizza(PizzaTaste pizzaTaste , PizzaType pizzaType) throws Exception {
 
         Pizza pizza;
-        pizza = creatPizza(type);
+        pizza = creatPizza(pizzaTaste , pizzaType);
 
         pizza.prepare();
         pizza.bake();
@@ -21,5 +22,5 @@ public abstract class PizzaStore {
 
         return pizza;
     }
-    protected abstract Pizza creatPizza(PizzaTaste type) throws Exception;
+    protected abstract Pizza creatPizza(PizzaTaste taste , PizzaType type) throws Exception;
 }

@@ -2,6 +2,7 @@ package com.headfirst.design.factory;
 
 import com.headfirst.design.factory.domain.Pizza;
 import com.headfirst.design.factory.enums.PizzaTaste;
+import com.headfirst.design.factory.enums.PizzaType;
 
 /**
  * @author LiuCan
@@ -10,18 +11,24 @@ import com.headfirst.design.factory.enums.PizzaTaste;
  */
 public class NYPizzaStore  extends PizzaStore{
     @Override
-    protected Pizza creatPizza(PizzaTaste type) throws Exception {
-        switch (type) {
-            case CLAM:
-                return new NYStyleClamPizza(type.getCode());
-            case CHEESE:
-                return new NYStyleCheesePizza(type.getCode());
-            case VEGGIE:
-                return new NYStyleVeggiePizza(type.getCode());
-            case PEPPERONI:
-                return new NYStylePepperoniPizza(type.getCode());
+    protected Pizza creatPizza(PizzaTaste pizzaTaste , PizzaType pizzaType) throws Exception {
+        switch (pizzaType) {
+            case NY_PIZZA:
+                switch (pizzaTaste) {
+                    case CLAM:
+                        return new NYStyleClamPizza(pizzaTaste.getCode());
+                    case CHEESE:
+                        return new NYStyleCheesePizza(pizzaTaste.getCode());
+                    case VEGGIE:
+                        return new NYStyleVeggiePizza(pizzaTaste.getCode());
+                    case PEPPERONI:
+                        return new NYStylePepperoniPizza(pizzaTaste.getCode());
+                    default:
+                        throw new Exception("unknown pizza taste !");
+                }
             default:
-                throw new Exception("unknown pizza type !");
+                throw new Exception("unknown pizza type!");
         }
+
     }
 }

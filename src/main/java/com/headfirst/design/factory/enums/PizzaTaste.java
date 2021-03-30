@@ -6,30 +6,21 @@ package com.headfirst.design.factory.enums;
  * @description PizzaTaste
  */
 public enum PizzaTaste {
-    CHEESE(PizzaType.NY_PIZZA, "CHEESE", "cheese"),
-    VEGGIE(PizzaType.NY_PIZZA, "VEGGIE", "veggie"),
-    CLAM(PizzaType.NY_PIZZA, "CLAM", "clam"),
-    PEPPERONI(PizzaType.NY_PIZZA, "PEPPERONI", "pepperoni"),
+    CHEESE( "CHEESE", "cheese"),
+    VEGGIE("VEGGIE", "veggie"),
+    CLAM("CLAM", "clam"),
+    PEPPERONI("PEPPERONI", "pepperoni"),
+
     ;
 
-    private PizzaType pizzaType;
 
     private String name;
 
     private String code;
 
-    PizzaTaste(PizzaType pizzaType, String name, String code) {
-        this.pizzaType = pizzaType;
+    PizzaTaste( String name, String code) {
         this.name = name;
         this.code = code;
-    }
-
-    public PizzaType getPizzaType() {
-        return pizzaType;
-    }
-
-    public void setPizzaType(PizzaType pizzaType) {
-        this.pizzaType = pizzaType;
     }
 
     public String getName() {
