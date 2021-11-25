@@ -35,7 +35,7 @@ public class SwaggerConfiguration {
 
     @Bean(value = "defaultApi2")
     public Docket defaultApi2() {
-        String groupName="HeadFirst4DesignV1.0";
+        String groupName = "HeadFirst4DesignV1.0";
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .host("https://headfirst4design.lim.com/")

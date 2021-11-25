@@ -5,6 +5,7 @@ import com.headfirst.design.duck.behavior.QuackBehavior;
 
 /**
  * 鸭子超类
+ *
  * @author LiuCan
  * @date 2020/11/23
  * @description design

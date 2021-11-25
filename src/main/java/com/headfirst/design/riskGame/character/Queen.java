@@ -7,7 +7,7 @@ import com.headfirst.design.riskGame.Weapon.impl.SwordBehavior;
  * @date 2020/11/30 20:25
  * @description Queen
  */
-public class Queen extends  Character{
+public class Queen extends Character {
     public Queen() {
         weaponBehavior = new SwordBehavior();
     }

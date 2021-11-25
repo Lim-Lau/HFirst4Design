@@ -1,8 +1,7 @@
 knife4j:
   enable: true
   documents:
-    -
-      group: HeadFirst4DesignV1.0
+    - group: HeadFirst4DesignV1.0
       name: 接口签名
       locations: classpath:markdown/sign.md
   setting:
