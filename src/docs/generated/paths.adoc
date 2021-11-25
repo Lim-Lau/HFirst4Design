@@ -1,0 +1,2897 @@
+
+[[_paths]]
+== Resources
+
+[[_e40aeffb25821f7ebf62efca52e34119]]
+=== ACL模块
+Acl Controller
+
+
+[[_changepwdusingpost]]
+==== 修改密码
+....
+POST /acl/model/change/pwd
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**user** +
+__optional__|用户信息|<<_8eb62f4c03f292fbb76e85b6dad83aab,修改密码实体>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_95e6bf69cb7721d84a213d35488dacde,Result«Void»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_edituserusingpost]]
+==== 编辑用户(新增/更新),更新时需要传入用户id信息
+....
+POST /acl/model/edit/user
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**user** +
+__optional__|用户信息|<<_user,User>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_95e6bf69cb7721d84a213d35488dacde,Result«Void»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_usersusingget]]
+==== 用户列表
+....
+GET /acl/model/users
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**key** +
+__optional__|关键字|string
+|**Query**|**page** +
+__required__|页码|integer (int64)
+|**Query**|**size** +
+__required__|页面大小|integer (int64)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_1af71c303d7512aaf892bd83b0292a8b,Result«IPage«User»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_importusersexcelusingpost]]
+==== 用户数据批量导入
+....
+POST /acl/model/users/batch-import
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**usersExcel** +
+__optional__|excel文件|file
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_95e6bf69cb7721d84a213d35488dacde,Result«Void»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `multipart/form-data`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_c492bb2254a02f679a7bd2f1fb4725f8]]
+=== 业务数据接收接口
+Business Controller
+
+
+[[_importinfousingpost]]
+==== 乡村信息导入
+....
+POST /import
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**infoExcels** +
+__optional__|excel文件|file
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `multipart/form-data`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_insurancebatchdealusingget]]
+==== 保单数据批量处理
+....
+GET /insurance/batch-deal
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_importinsuranceexcelusingpost]]
+==== 保单批量导入
+....
+POST /policy/batch-import
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**insuranceExcel** +
+__optional__|excel文件|file
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `multipart/form-data`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_importsettlementclaimexcelusingpost]]
+==== 理赔数据批量导入
+....
+POST /settlement-claim/batch-import
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**settlementClaimExcel** +
+__optional__|excel文件|file
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `multipart/form-data`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_updatetypecodeusingget]]
+==== 更新字段
+....
+GET /update/type-code
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_5491c08440833fd843824793055b3048]]
+=== 保单数据区域统计模块
+Insurance Statistic Controller
+
+
+[[_searchvillagebydistrictcodeusingget]]
+==== 通过区县code获取乡级信息
+....
+GET /search/village-by-district-code
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**districtCode** +
+__optional__|区县code|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_a86a0bf075004645ffd81ff764457abb,Result«List«AreaAddition»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_belowdistrictdatausingget]]
+==== 获取乡村统计信息
+....
+GET /statistic/below-district
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**districtCode** +
+__optional__|区县code|string
+|**Query**|**level** +
+__optional__|级别|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)
+|**Query**|**name** +
+__optional__|名称|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_1781be1c3953ff80ae716ba52057f292,Result«List«InsuranceDataDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_belowdistrictinfousingpost_1]]
+==== 获取区级以下统计信息
+....
+POST /statistic/below_district_info
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**statisticDTO** +
+__optional__|统计数据请求实体|<<_statisticdto,StatisticDTO>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_7348d06010083cfbcc86989a2555a265,Result«BelowDistrictInsuranceStatisticDTO»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_statisticinfousingget]]
+==== 获取统计信息
+....
+GET /statistic/info
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码|string|`"630000"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_1781be1c3953ff80ae716ba52057f292,Result«List«InsuranceDataDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_listinsurancestatisticusingget]]
+==== 查询保单的统计信息
+....
+GET /statistic/insurance
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码|string|`"630000"`
+|**Query**|**insuranceType** +
+__optional__|险种CODE|string|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_f12ee3254d4cf0e663694f96a5c43db8,Result«List«InsuranceStatisticDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_listinsurancestatisticwithareausingget]]
+==== 查询保单的统计信息以及子区域的边界信息
+....
+GET /statistic/insurance_area
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码|string|`"630000"`
+|**Query**|**insuranceType** +
+__optional__|险种CODE|string|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d60299983416881ca2e6fef9586a42b1,Result«InsuranceStatisticWithAreaDTO»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_policiesbypageusingget]]
+==== 获取承保信息列表
+....
+GET /statistic/policies-by-page
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**key** +
+__optional__|保单号模糊匹配条件|string
+|**Query**|**name** +
+__optional__|村镇名称|string
+|**Query**|**page** +
+__required__|页码|integer (int64)
+|**Query**|**size** +
+__required__|页面大小|integer (int64)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4a55b21a363d687ecfeec428e02b6f62,Result«IPage«List«InsurancePolicyPageDTO»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_b096e968fc4ee9c79bffb28cdf73bd00]]
+=== 区域模块
+Area Controller
+
+
+[[_getchildlistbyparentusingget]]
+==== 根据父区域名称获取子区域列表
+....
+GET /area/child/list/by/{parent}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**parent** +
+__required__|parent|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_9a762f0e51d13892bf1f0da017b8dff6,Result«List«Area»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getlistbyowncodeusingget]]
+==== 根据本区域code获取区域列表
+....
+GET /area/list/by/{ownCode}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**ownCode** +
+__required__|ownCode|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_20debdb1c8d8346b5b28c132a3269f9b,Result«List«Area»»_1>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_25f48dff92728679866d1da6d5c5e4ca]]
+=== 历史地震数据模块
+History Earthquake Controller
+
+
+[[_historyearthquakesbyparamusingget]]
+==== 历史地震列表数据
+....
+GET /history-earthquake
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**endDepth** +
+__optional__|截止深度|number (double)
+|**Query**|**endMagnitude** +
+__optional__|截止震级|number (double)
+|**Query**|**endYear** +
+__optional__|截止时间|number (double)
+|**Query**|**placeName** +
+__optional__|地名|string
+|**Query**|**startDepth** +
+__optional__|起始深度|number (double)
+|**Query**|**startMagnitude** +
+__optional__|起始震级|number (double)
+|**Query**|**startYear** +
+__optional__|开始时间|number (double)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_634631649120433a1d7fb8636236659d,Result«List«HistoryEarthquakeResponseDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_gethistoryearthquakeinfosusingget]]
+==== 地震点数据
+....
+GET /history-earthquake/{id}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|标识|integer (int64)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4fd879bdfdaf9b92bb113687c8a2cc64,Result«HistoryEarthquakePointDTO»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_2c140191d8551a0101f6e8a5c2efcbac]]
+=== 历史雪灾模块
+History Snow Hazard Controller
+
+
+[[_countusingget]]
+==== 统计
+....
+GET /history-snow-hazard/count
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_b35f05c6a59cff263a029b6f27539309,Result«List«HazardDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_pageusingget]]
+==== 列表
+....
+GET /history-snow-hazard/page
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**city** +
+__optional__|城市名称|string
+|**Query**|**page** +
+__required__|页码|integer (int64)
+|**Query**|**size** +
+__required__|页面大小|integer (int64)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_1a5ca1853151bd221fae1ed4effd922b,Result«Page«HistorySnowHazard»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_f0b097b2564b3615cde115d7b51a1875]]
+=== 大屏模块
+Dashboard Controller
+
+
+[[_accumulativeclaimusingget]]
+==== 累积赔付
+....
+GET /dashboard/accumulative/claim
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_875887a5d4b99473a43e7fc42be41045,Result«AccumulateClaimDTO»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_accumulativeinsuredusingget]]
+==== 累积承保
+....
+GET /dashboard/accumulative/insured
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|**Query**|**year** +
+__optional__|年份|string|`"2021"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_8285b1eb0e54e5f302f06c197ec40b68,Result«AccumulateInsuredDTO»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_alllossratiousingget]]
+==== 获取赔付率及赔付户数
+....
+GET /dashboard/all-loss-ratio
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|**Query**|**level** +
+__optional__|行政区域级别|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_dbfad34a6eb6f0cb1d5a8b8183e2e5fc,Result«AllRatioDTO»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_countryclaimedratiousingget]]
+==== 各乡镇赔付率
+....
+GET /dashboard/country/claimed-ratio
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**year** +
+__optional__|年份|string|`"2021"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_5aa7eb601051c62651c3f5a8745210a1,Result«Map«string,List«各乡镇赔付率实体»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getinsuranceratiousingget]]
+==== 获取承保率
+....
+GET /dashboard/get/insurance-ratio
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_83eb49c4bc4eb978460600e951804254,Result«Map«string,List«InsuranceRatioDTO»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getlossratiousingget]]
+==== 获取赔付率
+....
+GET /dashboard/get/loss-ratio
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_83eb49c4bc4eb978460600e951804254,Result«Map«string,List«InsuranceRatioDTO»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getlossratiobycndusingget]]
+==== 根据条件获取赔付率
+....
+GET /dashboard/get/loss-ratio/by-cnd
+....
+
+[CAUTION]
+====
+operation.deprecated
+====
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|**Query**|**level** +
+__optional__|行政区域级别|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4d630c407fac90fea44c7ac3d0c514db,Result«Map«string,List«LossRatio»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_monthlyclaimusingget]]
+==== 月度理赔统计
+....
+GET /dashboard/monthly/claim
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|**Query**|**level** +
+__optional__|行政区域级别|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_8945d9b96d1ad320d8ebd59605b08b49,Result«Map«string,List«MonthlyClaimedStatistic»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_monthlyinsuredusingget]]
+==== 月度承保统计
+....
+GET /dashboard/monthly/insured
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|**Query**|**level** +
+__optional__|行政区域级别|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_99114e4717491ea9d77ed1a4c25dc601,Result«Map«string,List«MonthlyInsuredStatistic»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_querypovertyalleviationusingget]]
+==== 扶贫专栏信息
+....
+GET /dashboard/query/poverty/alleviation
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_2550cb7915d0cbc8a8206eb35fb879cb,Result«List«PovertyAlleviation»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_querypovertyalleviationinsuranceusingget]]
+==== 扶贫专栏保单信息
+....
+GET /dashboard/query/poverty/alleviation/insurance
+....
+
+[CAUTION]
+====
+operation.deprecated
+====
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d29aa80ba781a975a2c83a4a2c802675,Result«List«PovertyAlleviationInsurance»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_regionofinsuranceandclaimusingget]]
+==== 各地区承保理赔情况
+....
+GET /dashboard/region/insurance-claim
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_6bfddce31f9f3eb72adb3f607b1b5067,Result«List«RegionOfInsuranceAndClaimDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_listriskwarningsusingget]]
+==== 预警列表
+....
+GET /dashboard/risk/warnings
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_cedc9a7a9b2738625acca973c2ce38b4,Result«List«RiskWarningDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_statisticusingget]]
+==== 大屏统计
+....
+GET /dashboard/statistic
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_352085e1c69120eb878a60a6eb40f076,Result«DashboardDTO»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_538b514195e453c4f1624abb6382c6c8]]
+=== 标的模块
+Subject Matter Controller
+
+
+[[_disasterindexinfousingget]]
+==== 灾害指标信息
+....
+GET /disaster-indexes
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**areaCode** +
+__optional__|区域code|string
+|**Query**|**x** +
+__optional__|经度|number (double)
+|**Query**|**y** +
+__optional__|纬度|number (double)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_3b269aaf50a3095498664ce729f10763,Result«DisasterInfos»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_b0e17a5a944d86176bd5766a9dc16953]]
+=== 气象数据模块
+Weather Data Controller
+
+
+[[_riskwarningnotifyusingpost]]
+==== 风险预警通知
+....
+POST /risk/warning/notify
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**alarmMsgDTO** +
+__required__|alarmMsgDTO|<<_alarmmsgdto,AlarmMsgDTO>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_95e6bf69cb7721d84a213d35488dacde,Result«Void»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_9db88dfa070e6d7c49db242456ec997a]]
+=== 气象站点模块
+Weather Station Controller
+
+
+[[_getinfobystationcodeusingget]]
+==== 根据站点code获取实况站点信息
+....
+GET /weather/station/info/by/stationCode
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**stationCode** +
+__required__|stationCode|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_e13a38c5c10722ba84f5bbe024d42377,Result«RealtimeStation»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getlistbyparentusingget]]
+==== 根据父名称获取下一级
+....
+GET /weather/station/list/by/parent
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**level** +
+__optional__|等级|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)
+|**Query**|**parentName** +
+__optional__|parentName|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d20af05599f05663038ae78208870c78,Result«List«WeatherStation»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_65e836d3d556c04f200c143f91180804]]
+=== 测试模块
+Test Controller
+
+
+[[_dealinsuranceusingget]]
+==== 处理理赔
+....
+GET /test/deal/insurance
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_grounddatausingget]]
+==== 地块数据
+....
+GET /test/ground/data
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_7758077687954ce81701eb1a26b94213]]
+=== 滑坡泥石流数据表模块
+Landslide Debris Flow Controller
+
+
+[[_getlandslidedebrisflowlistusingget]]
+==== 滑坡泥石流分布点查询
+....
+GET /landslide-debris-flow
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**areaName** +
+__optional__|区域名称|string
+|**Query**|**mudType** +
+__optional__|类型|string
+|**Query**|**scale** +
+__optional__|gm规模|string
+|**Query**|**stability** +
+__optional__|wdx稳定性|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d245ad15caad1a2ab0949f225107f7f0,Result«List«LandslideDebrisFlowResponseDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_detailusingget]]
+==== 滑坡泥石流数据表详情
+....
+GET /landslide-debris-flow/{id}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|滑坡泥石流数据表id|integer (int64)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fd7c56fe19b6d10b1eb77107650c3521,Result«LandslideDebrisFlow»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_57c1b1a552025b9c9990a2670d8b8d84]]
+=== 灾种模块
+Disaster Controller
+
+
+[[_allusingget_1]]
+==== 全部灾种
+....
+GET /disasters
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_8529751a66b090f3385ed68bf3f6c16a,Result«List«string»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_a06862e34db52c25cb5682f672a289f3]]
+=== 理赔数据区域统计模块
+Claimed Statistic Controller
+
+
+[[_belowdistrictinfousingpost]]
+==== 获取区级以下理赔统计信息
+....
+POST /claimed/statistic/below_district_info
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**statisticDTO** +
+__optional__|统计数据请求实体|<<_statisticdto,StatisticDTO>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_7348d06010083cfbcc86989a2555a265,Result«BelowDistrictInsuranceStatisticDTO»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_recentlyclaimedinformationusingget]]
+==== 获取最近的理赔数据信息
+....
+GET /claimed/statistic/recently/info
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_51c53f50608e51ffca33a1448d8da031,Result«List«RecentlyClaimedDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_monthlyclaimedstatisticsusingget]]
+==== 月度理赔统计
+....
+GET /monthly/claimed/statistics
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|**Query**|**level** +
+__optional__|行政区域级别|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_8945d9b96d1ad320d8ebd59605b08b49,Result«Map«string,List«MonthlyClaimedStatistic»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_listclaimedstatisticwithareausingget]]
+==== 查询保单的统计信息以及子区域的边界信息
+....
+GET /settlement-claim/statistic/area
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码|string|`"100000"`
+|**Query**|**insuranceType** +
+__optional__|险种|string|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_319cc69d0752e5409fe619e343aaebe4,Result«ClaimedStatisticWithAreaDTO»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_claimedbypageusingget]]
+==== 获取承保信息列表
+....
+GET /statistic/claimed-by-page
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**key** +
+__optional__|保单号模糊匹配条件|string
+|**Query**|**name** +
+__optional__|村镇名称|string
+|**Query**|**page** +
+__required__|页码|integer (int64)
+|**Query**|**size** +
+__required__|页面大小|integer (int64)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_e6fdd49fbbfee72063aa217327d5769d,Result«IPage«List«ClaimPageDTO»»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_uptonowclaimedstatisticusingget]]
+==== 至今的理赔数据统计
+....
+GET /up-to-now/claimed/statistic
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|**Query**|**level** +
+__optional__|行政区域级别|enum (PROVINCE, CITY, DISTRICT, VILLAGE, COUNTRY)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_3fc0d931e38b3581fa08b64c4d7af7cd,Result«UpToNowClaimedStatistic»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_65bcfc1fd539b2cddf6276197767ec3e]]
+=== 用户模块
+User Controller
+
+
+[[_authcheckusingget]]
+==== 用户校验
+....
+GET /user/auth/check
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**token** +
+__required__|token|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_loginusingpost]]
+==== 要客用户登录
+....
+POST /user/login
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**loginDTO** +
+__optional__|用户登录选项|<<_logindto,LoginDTO>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_527c1315f224069a17899cccce331358,Result«AuthUser»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_imagecodeusingget]]
+==== 获取登录图形验证码
+....
+GET /user/login/captcha
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_logoutusingget]]
+==== 退出登录
+....
+GET /user/logout
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_c2d226844de33ffe7eb5bb08f6bdb12e]]
+=== 码本模块
+Codebook Controller
+
+
+[[_allusingget]]
+==== 码本数据获取
+....
+GET /codebook/all
+....
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_b9d1ffe4fb49cc9551aabd216ecb3666,Result«Map«string,object»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_eedcfbabd936a01fe2549f9850853792]]
+=== 通用模块
+Common Controller
+
+
+[[_getboundarybycodeusingget]]
+==== 根据code获取当前区域的边界等区域信息
+....
+GET /common/get/boundary/by-code
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**areaCode** +
+__optional__|区域编码,区县级以下录入名称|string|`"630000"`
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_77343ba0613ca41b7863cbc00826d906,Result«Area»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_groundsinfousingget]]
+==== 获取指定区域下的地块信息
+....
+GET /common/query/ground/info
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**policyNo** +
+__optional__|保单编号|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_144cf14caab75ccd414b2cd079afa12b,Result«List«Ground»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_4e7e695227101a3f6d2bd60f197e3498]]
+=== 风险预警模块
+Risk Warning Controller
+
+
+[[_getalarmboundarylistusingget]]
+==== 根据条件获取预警边界列表
+....
+GET /risk/warning/area/boundary/list
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**alarmEvent** +
+__optional__|预警事件|string
+|**Query**|**alarmLevel** +
+__optional__|预警级别|string
+|**Query**|**areaLevel** +
+__optional__|区域等级|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fd783715f5033941fdffbb4408ff56e6,Result«List«AlarmDTO»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getalarmpointlistusingget]]
+==== 根据条件获取预警点列表
+....
+GET /risk/warning/area/point/list
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**alarmEvent** +
+__optional__|预警事件|string
+|**Query**|**alarmLevel** +
+__optional__|预警级别|string
+|**Query**|**areaLevel** +
+__optional__|区域等级|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getalarmbyareacodeusingget]]
+==== 查询指定区域code的预警内容
+....
+GET /risk/warning/content
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**alarmEvent** +
+__optional__|alarmEvent|string
+|**Query**|**alarmLevel** +
+__optional__|alarmLevel|string
+|**Query**|**areaCode** +
+__required__|areaCode|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getcountyalarmlistusingget]]
+==== 获取县级预警列表
+....
+GET /risk/warning/county/list
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**alarmEvent** +
+__required__|alarmEvent|string
+|**Query**|**alarmLevel** +
+__optional__|alarmLevel|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_detailusingget_1]]
+==== 预警详情(包含预警的区域信息，通过指定的预警code查询)
+....
+GET /risk/warning/detail/{alarmCode}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**alarmCode** +
+__required__|alarmCode|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_getalarmeventsusingget]]
+==== 获取风险预警事件
+....
+GET /risk/warning/events
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**areaLevel** +
+__optional__|areaLevel|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+[[_listusingget]]
+==== 获取当前所有的有效预警列表(所有区域的预警列表,包含区域边界、坐标点的信息)
+....
+GET /risk/warning/list
+....
+
+[CAUTION]
+====
+operation.deprecated
+====
+
+
+===== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `\*/*`
+
+
+===== Security
+
+[options="header", cols=".^3a,.^4a,.^13a"]
+|===
+|Type|Name|Scopes
+|**apiKey**|**<<_authorization,Authorization>>**|global
+|===
+
+
+

@@ -1,0 +1,48 @@
+= AISP (农险服务平台)
+
+
+[[_overview]]
+== Overview
+青海农险服务平台
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : 中再巨灾风险管理股份有限公司
+__Contact Email__ : info@chinarecrm.com.cn
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : aisp.test.emasapple.cn
+__BasePath__ : /
+
+
+=== Tags
+
+* ACL模块 : Acl Controller
+* 业务数据接收接口 : Business Controller
+* 保单数据区域统计模块 : Insurance Statistic Controller
+* 区域模块 : Area Controller
+* 历史地震数据模块 : History Earthquake Controller
+* 历史雪灾模块 : History Snow Hazard Controller
+* 大屏模块 : Dashboard Controller
+* 标的模块 : Subject Matter Controller
+* 气象数据模块 : Weather Data Controller
+* 气象站点模块 : Weather Station Controller
+* 测试模块 : Test Controller
+* 滑坡泥石流数据表模块 : Landslide Debris Flow Controller
+* 灾种模块 : Disaster Controller
+* 理赔数据区域统计模块 : Claimed Statistic Controller
+* 用户模块 : User Controller
+* 码本模块 : Codebook Controller
+* 通用模块 : Common Controller
+* 风险预警模块 : Risk Warning Controller
+
+
+
