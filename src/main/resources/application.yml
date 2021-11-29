@@ -33,3 +33,5 @@ knife4j:
     enable: true
     username: Lim
     password: 12313
+swagger:
+  url:
